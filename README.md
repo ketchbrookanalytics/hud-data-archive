@@ -8,7 +8,14 @@ HUD made it much easier to do this programmatically by providing a JSON-format D
 
 ## Example
 
-The following code serves as an example on how to find, download, and read a dataset from the AWS S3 bucket.  
+Downloading a dataset from the public AWS S3 bucket is an easy, two-step process.
+
+1. Refer to [metadata.csv](metadata.csv) to find the dataset you are interested in downloading. Once you find the dataset you want to download, locate its unique identifier from the **identifier** column of the table.
+1. Determine the full path (i.e., "Contents" > "Key") to the dataset you want to download by either:
+    + Viewing the XML tree here: https://hud-data-archive.s3.us-east-1.amazonaws.com/, finding the "Key" value, and adding the "Key" value onto the end of the URL 
+    + Utilizing the AWS S3 API (e.g., using R or Python packages that wrap the API) to find the name of the dataset that you want to download
+
+The following R code serves as an example on how to find, download, and read a dataset from the AWS S3 bucket.  
 
 ```r
 library(aws.s3)
